@@ -46,6 +46,28 @@ const handleChange = (e) => {
   setInputMessage(innerText);
 };
 
+const handlePaste = (event) => {
+  event.preventDefault();
+
+  const text = event?.clipboardData?.getData('text/plain');
+  const selection = window.getSelection();
+  if (!selection?.rangeCount) {
+    return;
+  }
+  selection.deleteFromDocument();
+  const node = document.createTextNode(text);
+  selection.getRangeAt(0).insertNode(node);
+  const textNodes = [];
+  const parent = selection.getRangeAt(0).commonAncestorContainer;
+  const children = parent.childNodes;
+  for (const child of children) {
+    textNodes.push(child.nodeValue);
+  }
+  const inputText = textNodes.join('');
+  setInputMessage(inputText || '');
+  selection.collapseToEnd();
+};
+
 useEffect(() => {
   if(ref.current){
     ref.current.focus();
@@ -59,7 +81,7 @@ const tooLong = inputMessage.length > 7;
   return (
     <div className="App">
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
-          {showInput && <FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
+          {showInput && <FormWrapper>{() => <StyledParagraph onPaste={handlePaste} tabIndex={0} onInput={handleChange} error={tooLong} ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
           {!showInput && <p>With large width</p>}
         </Wrapper>
     </div>
