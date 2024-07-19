@@ -40,7 +40,7 @@ console.log('show input', showInput)
         <img src={logo} className="App-logo" alt="logo" />
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
           {showInput && <StyledParagraph ref={ref} contentEditable={true} placeholder="Write a message.."/>}
-          {!showInput && <p>Not this empty input</p>}
+          {!showInput && <p>With placeholder</p>}
         </Wrapper>
 
       </header>
