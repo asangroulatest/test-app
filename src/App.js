@@ -15,8 +15,11 @@ const FormWrapper = ({children}) => {
 }
 
 const Wrapper = styled.div`
-width: 400px;
-height: 100px;
+width: 200px;
+height: 70px;
+border: 1px solid green;
+padding: 20px;
+margin: 50px;
 `
 
 const StyledParagraph = styled.p`
