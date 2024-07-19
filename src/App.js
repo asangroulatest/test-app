@@ -29,7 +29,7 @@ console.log('show input', showInput)
         <img src={logo} className="App-logo" alt="logo" />
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
           {showInput && <StyledParagraph ref={ref} contentEditable={true}>Who is this</StyledParagraph>}
-          {!showInput && <p>Not this</p>}
+          {!showInput && <p>Not this v1</p>}
         </Wrapper>
 
       </header>
