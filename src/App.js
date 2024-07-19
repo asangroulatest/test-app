@@ -28,8 +28,8 @@ console.log('show input', showInput)
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
-          {showInput && <StyledParagraph ref={ref} contentEditable={true}>Who is this</StyledParagraph>}
-          {!showInput && <p>Not this v1</p>}
+          {showInput && <StyledParagraph ref={ref} contentEditable={true}/>}
+          {!showInput && <p>Not this empty input</p>}
         </Wrapper>
 
       </header>
