@@ -15,7 +15,7 @@ const FormWrapper = ({children}) => {
 }
 
 const Wrapper = styled.div`
-width: 200px;
+width: 500px;
 height: 70px;
 border: 1px solid green;
 padding: 20px;
