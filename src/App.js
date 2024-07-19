@@ -35,7 +35,13 @@ const StyledParagraph = styled.p`
 function App() {
 
 const [showInput, setShowInput] = useState(false);
+const [inputMessage, setInputMessage] = useState('');
 const ref = useRef(null);
+
+const handleChange = (e) => {
+  const { innerText } = e.target;
+  setInputMessage(innerText);
+};
 
 useEffect(() => {
   if(ref.current){
@@ -45,12 +51,14 @@ useEffect(() => {
 },[showInput])
 console.log('show input', showInput)
 
+const tooLong = inputMessage.length > 7;
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
-          {showInput && <FormWrapper>{() => <StyledParagraph ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
+          {showInput && <FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
           {!showInput && <p>With formwrapper</p>}
         </Wrapper>
 
