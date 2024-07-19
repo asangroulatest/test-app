@@ -60,7 +60,7 @@ const tooLong = inputMessage.length > 7;
     <div className="App">
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
           {showInput && <FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
-          {!showInput && <p>With revert</p>}
+          {!showInput && <p>With large width</p>}
         </Wrapper>
     </div>
   );
