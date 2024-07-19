@@ -55,17 +55,10 @@ const tooLong = inputMessage.length > 7;
 
   return (
     <div className="App">
-      <iframe title="some title">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
           {showInput && <FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
-          {!showInput && <p>With iframe</p>}
+          {!showInput && <p>With revert</p>}
         </Wrapper>
-
-
-      </header>
-      </iframe>
     </div>
   );
 }
