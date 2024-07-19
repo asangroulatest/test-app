@@ -2,6 +2,17 @@ import logo from './logo.svg';
 import './App.css';
 import {useEffect, useState, useRef} from 'react';
 import {styled} from 'styled-components';
+const FormControlWrapper = styled.div`
+  width: 100%;
+  flex-basis: 100%;
+`;
+
+const FormWrapper = ({children}) => {
+  const renChildren = children({});
+  return <FormControlWrapper>
+    {renChildren}
+  </FormControlWrapper>
+}
 
 const Wrapper = styled.div`
 width: 400px;
@@ -39,7 +50,7 @@ console.log('show input', showInput)
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
-          {showInput && <StyledParagraph ref={ref} contentEditable={true} placeholder="Write a message.."/>}
+          {showInput && <FormWrapper>{() => <StyledParagraph ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
           {!showInput && <p>With placeholder</p>}
         </Wrapper>
 
