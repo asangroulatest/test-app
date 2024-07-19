@@ -51,7 +51,7 @@ console.log('show input', showInput)
         <img src={logo} className="App-logo" alt="logo" />
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
           {showInput && <FormWrapper>{() => <StyledParagraph ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
-          {!showInput && <p>With placeholder</p>}
+          {!showInput && <p>With formwrapper</p>}
         </Wrapper>
 
       </header>
