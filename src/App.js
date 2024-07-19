@@ -8,6 +8,8 @@ width: 400px;
 height: 100px;
 `
 
+const StyledParagraph = styled.p``
+
 function App() {
 
 const [showInput, setShowInput] = useState(false);
@@ -26,7 +28,7 @@ console.log('show input', showInput)
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
-          {showInput && <p ref={ref} contentEditable={true}>Who is this</p>}
+          {showInput && <StyledParagraph ref={ref} contentEditable={true}>Who is this</StyledParagraph>}
           {!showInput && <p>Not this</p>}
         </Wrapper>
 
