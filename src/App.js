@@ -15,11 +15,18 @@ const FormWrapper = ({children}) => {
 }
 
 const Wrapper = styled.div`
-width: 500px;
-height: 70px;
-border: 1px solid green;
-padding: 20px;
-margin: 50px;
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  min-height: 95px;
+  width: 400px;
+  position: relative;
+  background: #ffffff;
+  padding: 20px 24px;
+  border-radius: 60px;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  cursor: text;
 `
 
 const StyledParagraph = styled.p`
@@ -33,6 +40,11 @@ const StyledParagraph = styled.p`
       opacity: 0.6;
     }
   }
+`;
+
+const InputWrapper = styled.div`
+  width: 100%;
+  align-self: stretch;
 `;
 
 function App() {
@@ -61,7 +73,7 @@ const tooLong = inputMessage.length > 7;
   return (
     <div className="App">
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
-          {showInput && <FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper>}
+          {showInput && <InputWrapper><FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper></InputWrapper>}
           {!showInput && <p>remove paste</p>}
         </Wrapper>
     </div>
