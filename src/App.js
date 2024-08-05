@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   min-height: 95px;
-  width: 400px;
+  width: 344px;
   position: relative;
   background: #ffffff;
   padding: 20px 24px;
@@ -81,7 +81,7 @@ const tooLong = inputMessage.length > 7;
     <div className="App">
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
           {showInput && <InputWrapper><FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={callbackRef}  contentEditable={true} placeholder="Write a message.."/>}</FormWrapper></InputWrapper>}
-          {!showInput && <IntialMessageTextWrapper><p>more styles2</p></IntialMessageTextWrapper>}
+          {!showInput && <IntialMessageTextWrapper><p>more styles3</p></IntialMessageTextWrapper>}
         </Wrapper>
     </div>
   );
