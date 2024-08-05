@@ -81,7 +81,7 @@ const tooLong = inputMessage.length > 7;
     <div className="App">
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
           {showInput && <InputWrapper><FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={callbackRef}  contentEditable={true} placeholder="Write a message.."/>}</FormWrapper></InputWrapper>}
-          {!showInput && <IntialMessageTextWrapper><p>more styles4</p></IntialMessageTextWrapper>}
+          {!showInput && <IntialMessageTextWrapper><p>more stylesff</p></IntialMessageTextWrapper>}
         </Wrapper>
     </div>
   );
