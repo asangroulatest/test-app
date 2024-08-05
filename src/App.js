@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import {useEffect, useState, useRef} from 'react';
+import {useEffect, useState, useRef, useCallback} from 'react';
 import {styled} from 'styled-components';
 const FormControlWrapper = styled.div`
   width: 100%;
@@ -40,6 +40,7 @@ const StyledParagraph = styled.p`
       opacity: 0.6;
     }
   }
+  font-size: 14px;
 `;
 
 const InputWrapper = styled.div`
@@ -55,7 +56,7 @@ function App() {
 
 const [showInput, setShowInput] = useState(false);
 const [inputMessage, setInputMessage] = useState('');
-const ref = useRef(null);
+
 
 const handleChange = (e) => {
   const { innerText } = e.target;
@@ -64,20 +65,22 @@ const handleChange = (e) => {
 
 
 
-useEffect(() => {
-  if(ref.current){
-    ref.current.focus();
-  }
 
-},[showInput])
-console.log('show input', showInput)
+const callbackRef = useCallback(inputElement => {
+  if (inputElement) {
+    inputElement.focus();
+  }
+}, []);
+
+console.log('renders show', showInput);
+
 
 const tooLong = inputMessage.length > 7;
 
   return (
     <div className="App">
         <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
-          {showInput && <InputWrapper><FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={ref} contentEditable={true} placeholder="Write a message.."/>}</FormWrapper></InputWrapper>}
+          {showInput && <InputWrapper><FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={callbackRef}  contentEditable={true} placeholder="Write a message.."/>}</FormWrapper></InputWrapper>}
           {!showInput && <IntialMessageTextWrapper><p>more styles1</p></IntialMessageTextWrapper>}
         </Wrapper>
     </div>
