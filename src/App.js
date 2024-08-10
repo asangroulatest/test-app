@@ -1,13 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
-import {useEffect, useState, useRef, useCallback} from 'react';
-import {styled} from 'styled-components';
+import { useEffect, useState, useRef, useCallback } from 'react';
+import { styled } from 'styled-components';
 const FormControlWrapper = styled.div`
   width: 100%;
   flex-basis: 100%;
 `;
 
-const FormWrapper = ({children}) => {
+const FormWrapper = ({ children }) => {
   const renChildren = children({});
   return <FormControlWrapper>
     {renChildren}
@@ -39,8 +39,12 @@ const StyledParagraph = styled.p`
       content: '${({ placeholder }) => placeholder}';
       opacity: 0.6;
     }
-  }
-  font-size: 14px;
+  };
+  &:focus {
+        font-size: 14px !important;
+        border: 1px solid green;
+    }
+  //font-size: 14px;
 `;
 
 const InputWrapper = styled.div`
@@ -54,35 +58,45 @@ const IntialMessageTextWrapper = styled.div`
 
 function App() {
 
-const [showInput, setShowInput] = useState(false);
-const [inputMessage, setInputMessage] = useState('');
+  const [showInput, setShowInput] = useState(false);
+  const [inputMessage, setInputMessage] = useState('');
+  let inputElementRef = useRef(null);
 
 
-const handleChange = (e) => {
-  const { innerText } = e.target;
-  setInputMessage(innerText);
-};
+  const handleChange = (e) => {
+    const { innerText } = e.target;
+    setInputMessage(innerText);
+  };
 
 
 
 
-const callbackRef = useCallback(inputElement => {
-  if (inputElement) {
-    inputElement.focus();
-  }
-}, []);
+  const callbackRef = useCallback(inputElement => {
+    if (inputElement) {
+      inputElement.style.fontSize = '30px';
+      inputElementRef.current = inputElement;
+      inputElement.focus();
+    }
+  }, []);
 
-console.log('renders show', showInput);
+  console.log('renders show', showInput);
 
 
-const tooLong = inputMessage.length > 7;
+  const tooLong = inputMessage.length > 7;
 
   return (
     <div className="App">
-        <Wrapper onClick={() => {console.log('clicked'); setShowInput(true)}}>
-          {showInput && <InputWrapper><FormWrapper>{() => <StyledParagraph onInput={handleChange} error={tooLong} ref={callbackRef}  contentEditable={true} placeholder="Write a message.."/>}</FormWrapper></InputWrapper>}
-          {!showInput && <IntialMessageTextWrapper><p>more stylesff</p></IntialMessageTextWrapper>}
-        </Wrapper>
+      <Wrapper onClick={() => { console.log('clicked'); setShowInput(true) }}>
+        {showInput && <InputWrapper><FormWrapper>{() => <StyledParagraph
+          onInput={handleChange}
+          error={tooLong}
+          ref={callbackRef}
+          contentEditable={true}
+
+          placeholder="Write a message.." />
+        }</FormWrapper></InputWrapper>}
+        {!showInput && <IntialMessageTextWrapper><p>more stylesffocus</p></IntialMessageTextWrapper>}
+      </Wrapper>
     </div>
   );
 }
