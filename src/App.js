@@ -94,7 +94,7 @@ function App() {
 
           placeholder="Write a message.." />
         }</FormWrapper></InputWrapper>}
-        {!showInput && <IntialMessageTextWrapper><p>more styles16</p></IntialMessageTextWrapper>}
+        {!showInput && <IntialMessageTextWrapper><p>more styles166</p></IntialMessageTextWrapper>}
       </Wrapper>
     </div>
   );
