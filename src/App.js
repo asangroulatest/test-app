@@ -41,10 +41,9 @@ const StyledParagraph = styled.p`
     }
   };
   &:focus {
-        font-size: 14px !important;
+        font-size: 16px !important;
         border: 1px solid green;
     }
-  //font-size: 14px;
 `;
 
 const InputWrapper = styled.div`
