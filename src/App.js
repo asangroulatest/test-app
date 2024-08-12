@@ -98,7 +98,7 @@ function App() {
 
           placeholder="Write a message.." />
         }</FormWrapper></InputWrapper>}
-        {!showInput && <IntialMessageTextWrapper><p>all in</p></IntialMessageTextWrapper>}
+        {!showInput && <IntialMessageTextWrapper><p>still 14px</p></IntialMessageTextWrapper>}
       </Wrapper>
     </div>
   );
