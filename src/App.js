@@ -42,7 +42,7 @@ const StyledParagraph = styled.p`
       opacity: 0.6;
     }
   };
-  font-size: 14px;
+  font-size: 16px;
   /* &:focus {
         font-size: 14px !important;
         border: 1px solid green;
@@ -98,7 +98,7 @@ function App() {
 
           placeholder="Write a message.." />
         }</FormWrapper></InputWrapper>}
-        {!showInput && <IntialMessageTextWrapper><p>still 14px</p></IntialMessageTextWrapper>}
+        {!showInput && <IntialMessageTextWrapper><p>now 16px</p></IntialMessageTextWrapper>}
       </Wrapper>
     </div>
   );
