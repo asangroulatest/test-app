@@ -19,7 +19,8 @@ const Wrapper = styled.div`
   display: flex;
   align-items: center;
   min-height: 95px;
-  width: 344px;
+  width: 300px;
+  max-width: 300px;
   position: relative;
   background: #ffffff;
   padding: 20px 24px;
@@ -27,6 +28,7 @@ const Wrapper = styled.div`
   flex-wrap: nowrap;
   justify-content: space-between;
   cursor: text;
+  font-size: 14px;
 `
 
 const StyledParagraph = styled.p`
@@ -40,15 +42,17 @@ const StyledParagraph = styled.p`
       opacity: 0.6;
     }
   };
-  &:focus {
-        font-size: 16px !important;
+  font-size: 14px;
+  /* &:focus {
+        font-size: 14px !important;
         border: 1px solid green;
-    }
+    } */
 `;
 
 const InputWrapper = styled.div`
   width: 100%;
   align-self: stretch;
+  font-size: 14px;
 `;
 
 const IntialMessageTextWrapper = styled.div`
@@ -72,7 +76,7 @@ function App() {
 
   const callbackRef = useCallback(inputElement => {
     if (inputElement) {
-      inputElement.style.fontSize = '30px';
+      //inputElement.style.fontSize = '30px';
       inputElementRef.current = inputElement;
       inputElement.focus();
     }
@@ -94,7 +98,7 @@ function App() {
 
           placeholder="Write a message.." />
         }</FormWrapper></InputWrapper>}
-        {!showInput && <IntialMessageTextWrapper><p>more styles166</p></IntialMessageTextWrapper>}
+        {!showInput && <IntialMessageTextWrapper><p>all in</p></IntialMessageTextWrapper>}
       </Wrapper>
     </div>
   );
