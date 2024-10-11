@@ -33,7 +33,7 @@ generateFontStylesheet('MontSerrat','https://cdn1.hubspot.net/googlefonts/fonts/
     <div className="App">
      <h2 >Default Font!!</h2>
      <h2 style={{fontFamily: 'Montserrat'}}>Montserrat!!</h2>
-     <h2 style={{fontFamily: 'Noto_Sans'}}>Noto Sans!!</h2>
+     <h2 style={{fontFamily: 'Noto_Sans'}}>Noto Sans(Doesn't apply)!!</h2>
 
     </div>
   );
