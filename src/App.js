@@ -19,8 +19,8 @@ function App() {
 
   useEffect(() => {
 generateFontStylesheet('MontSerrat','https://cdn1.hubspot.net/googlefonts/fonts/Montserrat/regular' );
- generateFontStylesheet('Noto_Sans','https://api-na1.hubspotqa.com/_hcms/googlefonts/Noto_Sans/regular' );
- generateFontStylesheet('Noto_Sans','https://api.hubapi.com/_hcms/googlefonts/Noto_Sans/regular' );
+ //generateFontStylesheet('Noto_Sans','https://api-na1.hubspotqa.com/_hcms/googlefonts/Noto_Sans/regular' );
+ generateFontStylesheet('Noto_Sans','https://api.hubapiqa.com/_hcms/googlefonts/Noto_Sans/regular' );
   },[])
 
 
