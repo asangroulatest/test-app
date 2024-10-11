@@ -4,10 +4,7 @@ import { useEffect, useState, useRef, useCallback } from 'react';
 import { styled } from 'styled-components';
 
  function generateFontStylesheet(fontFamily,url) {
-  console.log('called')
   const fontStylesheet = document.createElement('style');
-  //const url = 'https://api-na1.hubspotqa.com/_hcms/googlefonts/fonts/Noto_Sans/200';
-  //const url = 'https://cdn1.hubspot.net/googlefonts/fonts/Noto_Sans/regular';
   fontStylesheet.textContent = `@font-face {
         font-family: ${fontFamily};
         src: url("${url}.woff2") format("woff2"), url("${url}.woff") format("woff");
