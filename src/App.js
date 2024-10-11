@@ -89,17 +89,7 @@ function App() {
 
   return (
     <div className="App">
-      <Wrapper onClick={() => { console.log('clicked'); setShowInput(true) }}>
-        {showInput && <InputWrapper><FormWrapper>{() => <StyledParagraph
-          onInput={handleChange}
-          error={tooLong}
-          ref={callbackRef}
-          contentEditable={true}
-
-          placeholder="Write a message.." />
-        }</FormWrapper></InputWrapper>}
-        {!showInput && <IntialMessageTextWrapper><p>now 16px</p></IntialMessageTextWrapper>}
-      </Wrapper>
+     <h1>Welcome to my App!</h1>
     </div>
   );
 }
